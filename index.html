@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Resume</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to right, gray, gray);
+  color: white;
+  animation: fadeIn 1.5s ease-in;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: gray;
+  transition: width 0.3s ease;
+  width: 0%;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+section {
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card, .project-card {
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover, .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #eee;
+  font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DARK MODE (New) ===== */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode nav {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark-mode nav a {
+  color: gray;
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .project-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode footer {
+  background: #1e1e1e;
+}
+
+/* ===== Toggle Button (New) ===== */
+#darkToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#darkToggle:hover {
+  background-color: gray;
+}
+  </style>
+</head>
+<body>
+  <!-- Dark Mode Toggle Button -->
+  <button id="darkToggle">Dark Mode</button>
+
+  <header data-aos="fade-down">
+    <h1> Dhruv Patel </h1>
+    <p>Software Developer | Designer </p>
+  </header>
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Aspiring software developer with strong CS foundation and keen intrest in Ai. Eager to work on innovative projects , grow in software development and learn from industry experts in a dynamic and challenging environment </p>
+    <p>Completed a Diploma in Computer Engineering from LJ University and currently pursuing a B.Tech in Computer Scieance and Engineering at JG University.</p>
+    <p>Completed a web development internship at Sparks to Idea, earning a certificate of completion. Led a team during the Hackathon 2024–25 organized by Royal Technosoft, receiving a certificate of participation. Additionally, led a team of five in the final-year Diploma project titled Overseas Learning, a website presented at LJ Innovation Village, and received a certificate of participation.</p>
+</section>
+
+  <section id="skills" data-aos="zoom-in">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">Figma</div>
+      <div class="skill-card">Canva</div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-right">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="project-card">Portfolio WebPage</div>
+      <div class="project-card">Smart Eats</div>
+      <div class="project-card">The Cars</div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-left">
+    <h2>Contact</h2>
+    <p>Email: dhruvp2303@gmail.com</p>
+    <p>LinkedIn: https://www.linkedin.com/in/dhruv-patel-4b1a56323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app</p>
+    <p>GitHub: https://github.com/PatelDhruv2303</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jane Doe</p>
+  </footer>
+
+  <!-- AOS and Custom JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
